@@ -10,38 +10,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.hrms.business.abstracts.JobPositionService;
+
+import kodlamaio.hrms.business.abstracts.JobpositionService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.JobPosition;
+import kodlamaio.hrms.entities.concretes.Jobposition;
 
 
 @RestController
 @RequestMapping("/api/job-positions")
 
-public class JobPositionsController {
+public class JobpositionsController {
 
-	private JobPositionService jobPositionService;
+	private JobpositionService jobpositionService;
 
 	@Autowired
-	public JobPositionsController(JobPositionService jobPositionService) {
+	public JobpositionsController(JobpositionService jobpositionService) {
 		super();
-		this.jobPositionService = jobPositionService;
+		this.jobpositionService = jobpositionService;
 	}
 
 	@GetMapping("/getall")
-	public DataResult<List<JobPosition>> getAll() {
-		return this.jobPositionService.getAll();
+	public DataResult<List<Jobposition>> getAll() {
+		return this.jobpositionService.getAll();
 		
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody JobPosition jobPosition) {
-		return this.jobPositionService.add(jobPosition);
+	public Result add(@RequestBody Jobposition jobPosition) {
+		return this.jobpositionService.add(jobPosition);
 	}
 
 	@GetMapping("/findbypositionname")
-	public DataResult<List<JobPosition>> findOneByPositionName(String positionName) {
-		return this.jobPositionService.findOneByPositionName(positionName);
+	public DataResult<List<Jobposition>> findOneByPositionName(String positionName) {
+		return this.jobpositionService.findOneByPositionName(positionName);
 	}
 }

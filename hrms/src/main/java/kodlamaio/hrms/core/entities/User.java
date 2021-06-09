@@ -31,19 +31,20 @@ public class User {
 	
 	
 
-	@Column(name = "email",nullable = false,unique = true)
+	@Column(name = "email",nullable = true,unique = true)
 	@Email
 	@NotBlank
 	@NotNull
 	private String email;
 	
-	@Column(name = "password", nullable = false)
+	@Column(name = "password", nullable = true)
 	@NotBlank
 	@NotNull
 	@ValidPassword
 	private String password;
 	
 	public User(  String email, String password) {
+		
 		this.email = email;
 		this.password = password;
 	}
