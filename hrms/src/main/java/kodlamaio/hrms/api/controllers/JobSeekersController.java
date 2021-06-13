@@ -51,6 +51,11 @@ public class JobSeekersController {
 		return ResponseEntity.ok( this.jobSeekerService.add(jobSeeker));
 	}
 	
+	@GetMapping("/getresume")
+	public ResponseEntity<?> getResume(int id){
+		return ResponseEntity.ok( this.jobSeekerService.getResumeByJobSeekerId(id));
+	}
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)   //sistemde şu türden bir hata olursa MethodArgumentNotValidException
 	@ResponseStatus(HttpStatus.BAD_REQUEST)                          //bad request olarak sarmalla
 	public ErrorDataResult<Object> handleValidationException

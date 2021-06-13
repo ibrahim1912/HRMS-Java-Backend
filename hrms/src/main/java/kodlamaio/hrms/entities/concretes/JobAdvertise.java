@@ -18,6 +18,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -59,7 +60,7 @@ public class JobAdvertise {
   
 
 	
-	@Column(name = "application_deadline")  //"2021-04-14"
+	@Column(name = "application_deadline")  
 	private LocalDate applicationDeadline;
 
 	
@@ -67,8 +68,7 @@ public class JobAdvertise {
   	private LocalDateTime releaseDate;
     
 
-	@JsonIgnoreProperties({ "website", "phoneNumber", "email",
-	"password" })
+	@JsonIgnoreProperties({ "website", "phoneNumber", "email","password" })
 	@ManyToOne() 
 	@JoinColumn(name = "employer_id")
 	private Employer employer;
