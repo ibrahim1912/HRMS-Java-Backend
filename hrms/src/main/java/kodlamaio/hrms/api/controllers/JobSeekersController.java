@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ import kodlamaio.hrms.core.utilities.results.ErrorDataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/job-seekers")
 public class JobSeekersController {
@@ -52,8 +54,8 @@ public class JobSeekersController {
 	}
 	
 	@GetMapping("/getresume")
-	public ResponseEntity<?> getResume(int id){
-		return ResponseEntity.ok( this.jobSeekerService.getResumeByJobSeekerId(id));
+	public ResponseEntity<?> getResume(int jobSeekerId){
+		return ResponseEntity.ok( this.jobSeekerService.getResumeByJobSeekerId(jobSeekerId));
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)   //sistemde şu türden bir hata olursa MethodArgumentNotValidException

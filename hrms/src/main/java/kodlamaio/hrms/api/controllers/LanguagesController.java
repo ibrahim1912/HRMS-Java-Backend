@@ -24,6 +24,7 @@ import kodlamaio.hrms.core.utilities.results.ErrorDataResult;
 import kodlamaio.hrms.entities.concretes.CoverLetter;
 import kodlamaio.hrms.entities.concretes.Language;
 
+
 @RestController
 @RequestMapping("/api/languages")
 @CrossOrigin

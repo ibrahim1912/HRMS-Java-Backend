@@ -50,9 +50,9 @@ public class EducationsController {
 	}
 
 	
-	@GetMapping("/getAllByJobseekerIdOrderByEndAtDesc")
-	public ResponseEntity<?> getAllByJobseekerIdOrderByEndAtDesc(int id) {
-		return ResponseEntity.ok( this.educationService.getAllByJobSeekerIdOrderByGraduationDateDesc(id));
+	@GetMapping("/getAllByJobseekerIdOrderByGraduationDateDesc")
+	public ResponseEntity<?> getAllByJobseekerIdOrderByGraduationDateDesc(int jobSeekerId) {
+		return ResponseEntity.ok( this.educationService.getAllByJobSeekerIdOrderByGraduationDateDesc(jobSeekerId));
 	}
 	
 	@GetMapping("/getAllByJobseekerId")
@@ -60,6 +60,11 @@ public class EducationsController {
 		return ResponseEntity.ok( this.educationService.getAllByJobSeekerId(id));
 	}
 	
+//	@GetMapping("/getDESCOrderByGraduationDate")
+//	public ResponseEntity<?> getDESCOrderByGraduationDate(int jobSeekerId){
+//		return ResponseEntity.ok(this.educationService.getByJobSeekerIdOrderByGraduationDateDESC(jobSeekerId));
+//	}
+//	
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)   
 	@ResponseStatus(HttpStatus.BAD_REQUEST)                         

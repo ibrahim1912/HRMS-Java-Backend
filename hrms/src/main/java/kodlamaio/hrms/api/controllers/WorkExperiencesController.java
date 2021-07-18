@@ -25,7 +25,7 @@ import kodlamaio.hrms.entities.concretes.Employer;
 import kodlamaio.hrms.entities.concretes.WorkExperience;
 
 @RestController
-@RequestMapping("/api/jobExperiences")
+@RequestMapping("/api/workExperiences")
 @CrossOrigin
 public class WorkExperiencesController {
 
@@ -49,9 +49,9 @@ public class WorkExperiencesController {
 	}
 
 	
-	@GetMapping("/getAllByJobseekerIdOrderByEndAtDesc")
-	public ResponseEntity<?> getAllByJobseekerIdOrderByDateOfEndDesc(int id) {
-		return ResponseEntity.ok( this.workExperienceService.getAllByJobSeekerIdOrderByDateOfEndDesc(id));
+	@GetMapping("/getAllByJobseekerIdOrderByEndDesc")
+	public ResponseEntity<?> getAllByJobseekerIdOrderByDateOfEndDesc(int jobSeekerId) {
+		return ResponseEntity.ok( this.workExperienceService.getAllByJobSeekerIdOrderByDateOfEndDesc(jobSeekerId));
 	}
 	
 	@GetMapping("/getAllByJobseekerId")
